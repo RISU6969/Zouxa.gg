@@ -20,7 +20,10 @@ async function connect() {
 }
 connect();
 
+
+app.set('view engine','html');
 app.set('view engine','ejs');
+
 app.use(expressEjsLayout);
 //BodyParser
 app.use(express.urlencoded({extended : false}));
@@ -43,9 +46,6 @@ app.use((req,res,next)=> {
 //Routes
 app.use('/',require('./routes/index'));
 app.use('/users',require('./routes/users'));
-
-app.set('view engine', 'ejs');
-app.set('view engine','html');
 
 app.listen(3000); 
 console.log("http://localhost:3000")
